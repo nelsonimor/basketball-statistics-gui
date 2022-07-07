@@ -10,7 +10,7 @@
 
 <?php
 $configs = include('../config.php');
-$url = $configs["endpoint.location.continent"];
+$url = $configs["endpoint.location.region"];
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -22,19 +22,19 @@ $response = curl_exec($client);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1>List of continents</h1>
+                    <h1>List of regions</h1>
                 </div>
             </div>
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Code</th><th>Name</th><th>Detail</th></tr>
+				<tr><th>Id</th><th>Name</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
-				foreach ($result->items as $continent) {
-				echo "<tr><td>".$continent->id."</td><td>".$continent->code."</td><td>".$continent->name."</td><td><A href='continentDetails.php?id=".$continent->id."'>Detail</A></td></tr>";
+				foreach ($result->items as $region) {
+				    echo "<tr><td>".$region->id."</td><td>".$region->name."</td><td><A href='regionDetails.php?id=".$region->id."'>Detail</A></td></tr>";
 				}?>
 				</tbody>
 				</table>

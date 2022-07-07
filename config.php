@@ -6,7 +6,8 @@
 
 //dev
 return array(
-	'endpoint.location' => 'http://lucdian.alwaysdata.net/continents/'
+	'endpoint.location.continent' => 'http://lucdian.alwaysdata.net/continents/',
+    'endpoint.location.region' => 'http://lucdian.alwaysdata.net/regions/'
 );
 ?>
 

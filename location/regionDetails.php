@@ -11,7 +11,7 @@
 <?php
 $configs = include('../config.php');
 $id = $_GET["id"];
-$url = $configs["endpoint.location.continent"].$id;
+$url = $configs["endpoint.location.region"].$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -24,7 +24,7 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>Continent : ".$result->name." (".$result->code.")</h1>";?></h1>
+                    <h1><?php echo "<h1>Region : ".$result->name."</h1>";?></h1>
                 </div>
             </div>
         </div>
