@@ -1,6 +1,6 @@
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Name</th><th>Fullname</th><th>Continent</th><th>Region</th><th>Flag</th><th>Detail</th></tr>
+				<tr><th>Id</th><th>Name</th><th>Fullname</th><th>Continent</th><th>Region</th><th>Flag</th><th></th></tr>
 				</thead>
 				<tbody>
 				<?php
@@ -12,7 +12,7 @@
                         <td><A href='continentDetails.php?id=".$country->continent->id."'/>".$country->continent->name."</A></td>
                         <td><A href='regionDetails.php?id=".$country->region->id."'/>".$country->region->name."</A></td>
                         <td><img src='../flags/16x16/".strtolower($country->codeiso2).".png'/></td>
-                        <td><A href='countryDetails.php?id=".$country->id."'>Detail</A></td></tr>";
+                        <td><A href='countryDetails.php?id=".$country->id."'><img src='../icon/detail.png' height='16px' width='16px'/></A></td></tr>";
 				}?>
 				</tbody>
 				</table>

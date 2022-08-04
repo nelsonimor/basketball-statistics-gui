@@ -11,8 +11,7 @@
 <?php
 $configs = include('../config.php');
 $id = $_GET["id"];
-echo "id = ".$id;
-$url = $configs["endpoint.location.country"]."/id/".$id;
+$url = $configs["endpoint.location.city"].$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -25,30 +24,15 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>Country : ".$result->name." (".$result->fullname.")</h1>";?></h1>
+                    <h1><?php echo "<h1>City : ".$result->name." (".$result->country->name.") <img src='../flags/16x16/".strtolower($result->country->codeiso2).".png'/></h1>";?></h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php 
-$url = $configs["endpoint.location.city"]."?countryId=".$id;
-$client = curl_init($url);
-curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-$response = curl_exec($client);
-?>
 
-<div id="layout" class="content pure-g">
-	<?php include('menu.php');?>
-    <div id="main" class="pure-u-1">
-        <div class="bball-content">
-			<div class="bball-content-body">
-			<?php include('cities_table.php');?>
-			</div>
-        </div>
-    </div>
-</div>
+
 
 </body>
 </html>
