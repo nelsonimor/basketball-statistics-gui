@@ -40,16 +40,43 @@ if(isset($_POST["cityName"]) && isset($_POST["countryName"])){
 	<?php include('menu.php');?>
     <div id="main" class="pure-u-1">
 			<div class="bball-content">
+				
+
+				<?php
+				   $color = 'green';
+				   if(isset($resp)){
+				      echo "<table border='1' style='border-color: gray;'><tr><td>";
+				      $json = json_decode($resp, true);
+				      $color = "red";
+				      if(isset($json['status'])){
+				          echo '<font color='.$color.'>'.$json['status']." ".$json['title'].' '.$json['detail'].'</font>';
+				      }
+				      else{
+				          $color = "green";
+				          echo '<font color='.$color.'>Success : '.$resp.'</font>';
+				      }
+                      echo "</td></tr></table>";
+				   }
+				   
+				?>
+				
+
+
+
 				<div class="bball-content-header pure-g">
 					<div class="pure-u-1-2">
 						<h1>Add new city</h1>
 					</div>
+									
+
+					
+					
 				</div>
 
 				<form action="add_city.php" method="post">
 					<label for="cityName">City Name:</label> <input type="text"
 						id="cityName" name="cityName"><br>
-					<br> <label for="countryName">Last name:</label> <input type="text"
+					<br> <label for="countryName">Country name:</label> <input type="text"
 						id="countryName" name="countryName"><br>
 					<br> <input type="submit" value="Submit">
 				</form>
