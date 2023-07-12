@@ -12,7 +12,7 @@
                         <td>".$city->state."</td>
                         <td>".$city->county."</td>
                         <td><A href='countryDetails.php?id=".$city->country->id."'/>".$city->country->name."</A></td>
-                        <td><img src='../flags/16x16/".strtolower($city->country->codeiso2).".png'/></td>
+                        <td><img src='".$city->country->flagurl."'/></td>
                         <td><A href='continentDetails.php?id=".$city->country->continent->id."'/>".$city->country->continent->name."</A></td>
                         <td><A href='regionDetails.php?id=".$city->country->region->id."'/>".$city->country->region->name."</A></td>
                         <td><A href='cityDetails.php?id=".$city->id."'><img src='../icon/detail.png' height='16px' width='16px'/></A></td></tr>";

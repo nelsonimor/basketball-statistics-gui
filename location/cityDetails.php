@@ -24,7 +24,7 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>City : ".$result->name." (".$result->country->name.") <img src='../flags/16x16/".strtolower($result->country->codeiso2).".png'/></h1>";?></h1>
+                    <h1><?php echo "<h1>City : ".$result->name." (".$result->country->name.") <img src='".$result->country->flagurl."'/></h1>";?></h1>
                 </div>
             </div>
         </div>
