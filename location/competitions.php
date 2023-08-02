@@ -34,7 +34,7 @@ $response = curl_exec($client);
 				<?php
 				$result = json_decode($response);
 				foreach ($result->items as $competition) {
-				    echo "<tr><td>".$competition->id."</td><td>".$competition->name."</td><td><A href='#'>Detail</A></td></tr>";
+				    echo "<tr><td>".$competition->id."</td><td>".$competition->name."</td><td><A href='competitionDetails.php?id=".$competition->id."'>Detail</A></td></tr>";
 				}?>
 				</tbody>
 				</table>
