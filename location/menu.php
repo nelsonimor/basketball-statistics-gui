@@ -18,6 +18,11 @@
 				<li class="pure-menu-item"><a href="persons.php"
 					class="pure-menu-link"><span class="bball-label-personal"></span>Persons</a></li>
 			</ul>
+			<ul class="pure-menu-list">
+				<li class="pure-menu-heading">Competition</li>
+				<li class="pure-menu-item"><a href="competitions.php"
+					class="pure-menu-link"><span class="bball-label-work"></span>Competitions</a></li>
+			</ul>
 		</div>
 	</div>
 </div>
