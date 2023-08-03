@@ -10,8 +10,8 @@
 
 <?php
 $configs = include('../config.php');
-$id = $_GET["id"];
-$url = $configs["endpoint.location.competitions"].$id;
+$idCompetitionEdition = $_GET["idCompetitionEdition"];
+$url = $configs["endpoint.location.phasis"]."editions/".$idCompetitionEdition;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -24,20 +24,13 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>Competition : ".$result->name."</h1>";?></h1>
+                    <h1><?php echo "<h1>Phasis editions</h1>";?></h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<?php
-$url = $configs["endpoint.location.competitions"].$id."/editions";
-$client = curl_init($url);
-curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-$response = curl_exec($client);
-$result = json_decode($response);
-?>
 
 
 <div id="layout" class="content pure-g">
@@ -47,18 +40,19 @@ $result = json_decode($response);
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Competition</th><th>Start</th><th>End</th><th>Detail</th></tr>
+				<tr><th>Phasis</th><th>Competition</th><th>Start</th><th>End</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
 				//echo $response;
-				foreach ($result->editions as $edition) {
+				foreach ($result as $edition) {
 				    echo "<tr>
-                        <td>".$result->competition->name."</td>
+                        <td>".$edition->phasisName."</td>
+                        <td>".$edition->competitionName."</td>
                         <td>".$edition->startDate."</td>
                         <td>".$edition->endDate."</td>
-                        <td><A href='phasisEditions.php?idCompetitionEdition=".$edition->competitionEditionId."'>Detail</A></td></tr>";
+                        <td>Detail</td></tr>";
 				}?>
 				</tbody>
 				</table>

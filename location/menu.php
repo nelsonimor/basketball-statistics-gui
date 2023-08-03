@@ -22,6 +22,8 @@
 				<li class="pure-menu-heading">Competition</li>
 				<li class="pure-menu-item"><a href="competitions.php"
 					class="pure-menu-link"><span class="bball-label-work"></span>Competitions</a></li>
+				<li class="pure-menu-item"><a href="phasis.php"
+					class="pure-menu-link"><span class="bball-label-travel"></span>Phasis</a></li>
 			</ul>
 		</div>
 	</div>
