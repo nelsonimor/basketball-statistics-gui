@@ -10,8 +10,8 @@
 
 <?php
 $configs = include('../config.php');
-$id = $_GET["id"];
-$url = $configs["endpoint.location.competitions"].$id;
+$idPhasisEdition = $_GET["phasisEdition"];
+$url = $configs["endpoint.location.phasis"]."edition/".$idPhasisEdition;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -24,7 +24,7 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>Competition : ".$result->name."</h1>";?></h1>
+                    <h1><?php echo "<h1>".$result->competitionName." / ".$result->phasisName." (from ".$result->startDate." to ".$result->endDate.")</h1>";?></h1>
                 </div>
             </div>
         </div>
@@ -32,33 +32,31 @@ $result = json_decode($response);
 </div>
 
 <?php
-$url = $configs["endpoint.location.competitions"].$id."/editions";
+$url = $configs["endpoint.location.phasis"]."edition/".$idPhasisEdition."/participants";
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
 $result = json_decode($response);
 ?>
 
-
 <div id="layout" class="content pure-g">
 	<?php include('menu.php');?>
     <div id="main" class="pure-u-1">
         <div class="bball-content">
 			<div class="bball-content-body">
+				<h2>Participants</h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Competition</th><th>Start</th><th>End</th><th>Detail</th></tr>
+				<tr><th>Team</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
 				//echo $response;
-				foreach ($result->editions as $edition) {
+				foreach ($result as $participant) {
 				    echo "<tr>
-                        <td>".$result->competition->name."</td>
-                        <td>".$edition->startDate."</td>
-                        <td>".$edition->endDate."</td>
-                        <td><A href='competitionEdition.php?idCompetition=".$edition->competitionId."&idCompetitionEdition=".$edition->competitionEditionId."'>Detail</A></td></tr>";
+                        <td>".$participant->teamName."</td>
+                        <td>Detail</td></tr>";
 				}?>
 				</tbody>
 				</table>
@@ -66,7 +64,6 @@ $result = json_decode($response);
         </div>
     </div>
 </div>
-
 
 </body>
 </html>

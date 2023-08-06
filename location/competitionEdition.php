@@ -47,6 +47,7 @@ $result = json_decode($response);
     <div id="main" class="pure-u-1">
         <div class="bball-content">
 			<div class="bball-content-body">
+				<h2>Phasis</h2>
 				<table class="pure-table">
 				<thead>
 				<tr><th>Phasis</th><th>Competition</th><th>Start</th><th>End</th><th>Detail</th></tr>
@@ -61,6 +62,41 @@ $result = json_decode($response);
                         <td>".$edition->competitionName."</td>
                         <td>".$edition->startDate."</td>
                         <td>".$edition->endDate."</td>
+                        <td><A href='phasisEdition.php?phasisEdition=".$edition->phasisEditionId."'>Detail</A></td></tr>";
+				}?>
+				</tbody>
+				</table>
+			</div>
+        </div>
+    </div>
+</div>
+
+
+<?php
+$url = $configs["endpoint.location.competitions"]."/".$idCompetition."/editions/".$idCompetitionEdition."/participants";
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+$response = curl_exec($client);
+$result = json_decode($response);
+?>
+
+<div id="layout" class="content pure-g">
+	<?php include('menu.php');?>
+    <div id="main" class="pure-u-1">
+        <div class="bball-content">
+			<div class="bball-content-body">
+				<h2>Participants</h2>
+				<table class="pure-table">
+				<thead>
+				<tr><th>Team</th><th>Detail</th></tr>
+				</thead>
+				<tbody>
+				<?php
+				$result = json_decode($response);
+				//echo $response;
+				foreach ($result as $participant) {
+				    echo "<tr>
+                        <td>".$participant->teamName."</td>
                         <td>Detail</td></tr>";
 				}?>
 				</tbody>
