@@ -10,8 +10,9 @@
 
 <?php
 $configs = include('../config.php');
+$idCompetition = $_GET["idCompetition"];
 $idCompetitionEdition = $_GET["idCompetitionEdition"];
-$url = $configs["endpoint.location.phasis"]."editions/".$idCompetitionEdition;
+$url = $configs["endpoint.location.competitions"]."/".$idCompetition."/editions/".$idCompetitionEdition;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -24,12 +25,20 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>Phasis editions</h1>";?></h1>
+                    <h1><?php echo "<h1>".$result->competitionName." (from ".$result->startDate." to ".$result->endDate.")</h1>";?></h1>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<?php
+$url = $configs["endpoint.location.phasis"]."editions/".$idCompetitionEdition;
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+$response = curl_exec($client);
+$result = json_decode($response);
+?>
 
 
 

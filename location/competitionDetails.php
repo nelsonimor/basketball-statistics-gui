@@ -58,7 +58,7 @@ $result = json_decode($response);
                         <td>".$result->competition->name."</td>
                         <td>".$edition->startDate."</td>
                         <td>".$edition->endDate."</td>
-                        <td><A href='phasisEditions.php?idCompetitionEdition=".$edition->competitionEditionId."'>Detail</A></td></tr>";
+                        <td><A href='phasisEditions.php?idCompetition=".$edition->competitionId."&idCompetitionEdition=".$edition->competitionEditionId."'>Detail</A></td></tr>";
 				}?>
 				</tbody>
 				</table>

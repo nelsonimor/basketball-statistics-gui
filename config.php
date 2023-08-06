@@ -15,7 +15,8 @@ return array(
     'endpoint.location.city' => 'http://lucdian.alwaysdata.net/cities/',
     'endpoint.location.persons' => 'http://richardstar.alwaysdata.net/persons/',
     'endpoint.location.competitions' => 'http://jonathanpomma.alwaysdata.net/competitions/',
-    'endpoint.location.phasis' => 'http://jonathanpomma.alwaysdata.net/phasis/'
+    'endpoint.location.phasis' => 'http://jonathanpomma.alwaysdata.net/phasis/',
+    'endpoint.location.teams' => 'http://saraconor.alwaysdata.net/teams/'
 );
 ?>
 

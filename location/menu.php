@@ -25,6 +25,11 @@
 				<li class="pure-menu-item"><a href="phasis.php"
 					class="pure-menu-link"><span class="bball-label-travel"></span>Phasis</a></li>
 			</ul>
+			<ul class="pure-menu-list">
+				<li class="pure-menu-heading">Teams</li>
+				<li class="pure-menu-item"><a href="teams.php"
+					class="pure-menu-link"><span class="bball-label-work"></span>Teams</a></li>
+			</ul>
 		</div>
 	</div>
 </div>
