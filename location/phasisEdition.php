@@ -65,5 +65,43 @@ $result = json_decode($response);
     </div>
 </div>
 
+<?php
+$url = $configs["endpoint.location.games"]."phasisEdition/".$idPhasisEdition;
+$client = curl_init($url);
+curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
+$response = curl_exec($client);
+?>
+
+<div id="layout" class="content pure-g">
+	<?php include('menu.php');?>
+    <div id="main" class="pure-u-1">
+        <div class="bball-content">
+			<div class="bball-content-body">
+				<h2>Games</h2>
+				<table class="pure-table">
+				<thead>
+				<tr><th>Id</th><th>Date</th><th>Competition</th><th>Phasis</th><th>Teams</th><th>Score</th><th>Detail</th></tr>
+				</thead>
+				<tbody>
+				<?php
+				$result = json_decode($response);
+				foreach ($result->items as $game) {
+				    echo "<tr>
+                            <td>".$game->gameId."</td>
+                            <td>".$game->gameDate."</td>
+                            <td>".$game->competitionName."</td>
+                            <td>".$game->phaseName."</td>
+                            <td>".$game->localTeam." - ".$game->visitorTeam."</td>
+                            <td>".$game->localScore." - ".$game->visitorScore."</td>
+                            <td><A href='gameDetails.php?id=".$game->gameId."'>Detail</A></td>
+                          </tr>";
+				}?>
+				</tbody>
+				</table>
+			</div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

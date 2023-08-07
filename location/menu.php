@@ -30,6 +30,11 @@
 				<li class="pure-menu-item"><a href="teams.php"
 					class="pure-menu-link"><span class="bball-label-work"></span>Teams</a></li>
 			</ul>
+			<ul class="pure-menu-list">
+				<li class="pure-menu-heading">Games</li>
+				<li class="pure-menu-item"><a href="games.php"
+					class="pure-menu-link"><span class="bball-label-personal"></span>Games</a></li>
+			</ul>
 		</div>
 	</div>
 </div>

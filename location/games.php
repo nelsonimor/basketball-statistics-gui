@@ -10,7 +10,7 @@
 
 <?php
 $configs = include('../config.php');
-$url = $configs["endpoint.location.teams"];
+$url = $configs["endpoint.location.games"];
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -22,19 +22,27 @@ $response = curl_exec($client);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1>List of teams</h1>
+                    <h1>List of games</h1>
                 </div>
             </div>
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Team</th><th>Detail</th></tr>
+				<tr><th>Id</th><th>Date</th><th>Competition</th><th>Phasis</th><th>Teams</th><th>Score</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
-				foreach ($result->items as $team) {
-				    echo "<tr><td>".$team->id."</td><td>".$team->name."</td><td><A href='teamDetails.php?id=".$team->id."'>Detail</A></td></tr>";
+				foreach ($result->items as $game) {
+				    echo "<tr>
+                            <td>".$game->gameId."</td>
+                            <td>".$game->gameDate."</td>
+                            <td>".$game->competitionName."</td>
+                            <td>".$game->phaseName."</td>
+                            <td>".$game->localTeam." - ".$game->visitorTeam."</td>
+                            <td>".$game->localScore." - ".$game->visitorScore."</td>
+                            <td><A href='gameDetails.php?id=".$game->gameId."'>Detail</A></td>
+                          </tr>";
 				}?>
 				</tbody>
 				</table>
