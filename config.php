@@ -17,7 +17,8 @@ return array(
     'endpoint.location.competitions' => 'http://jonathanpomma.alwaysdata.net/competitions/',
     'endpoint.location.phasis' => 'http://jonathanpomma.alwaysdata.net/phasis/',
     'endpoint.location.teams' => 'http://saraconor.alwaysdata.net/teams/',
-    'endpoint.location.games' => 'http://krislewis.alwaysdata.net/games/'
+    'endpoint.location.games' => 'http://krislewis.alwaysdata.net/games/',
+    'endpoint.location.boxscores' => 'http://krislewis.alwaysdata.net/boxscore/'
 );
 ?>
 

@@ -47,7 +47,7 @@ $result = json_decode($response);
 				<h2>Participants</h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Team</th><th>Detail</th></tr>
+				<tr><th>Team</th><th>Roster</th><th>Team</th></tr>
 				</thead>
 				<tbody>
 				<?php
@@ -56,7 +56,7 @@ $result = json_decode($response);
 				foreach ($result as $participant) {
 				    echo "<tr>
                         <td>".$participant->teamName."</td>
-                        <td>Detail</td></tr>";
+                         <td><A href='XXX'>Roster</A></td><td><A href='XXX'>Team</A></td></tr>";
 				}?>
 				</tbody>
 				</table>

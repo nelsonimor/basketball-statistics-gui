@@ -10,9 +10,8 @@
 
 <?php
 $configs = include('../config.php');
-$idCompetition = $_GET["idCompetition"];
-$idCompetitionEdition = $_GET["idCompetitionEdition"];
-$url = $configs["endpoint.location.competitions"]."/".$idCompetition."/editions/".$idCompetitionEdition;
+$id = $_GET["id"];
+$url = $configs["endpoint.location.games"].$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -25,7 +24,7 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>".$result->competitionName." (from ".$result->startDate." to ".$result->endDate.")</h1>";?></h1>
+                    <h1><?php echo "<h1>Game : ".$result->localTeam." - ".$result->visitorTeam."</h1>";?></h1>
                 </div>
             </div>
         </div>
@@ -33,36 +32,30 @@ $result = json_decode($response);
 </div>
 
 <?php
-$url = $configs["endpoint.location.phasis"]."editions/".$idCompetitionEdition;
+$url = $configs["endpoint.location.boxscores"]."/".$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
 $result = json_decode($response);
 ?>
 
-
-
 <div id="layout" class="content pure-g">
 	<?php include('menu.php');?>
     <div id="main" class="pure-u-1">
         <div class="bball-content">
 			<div class="bball-content-body">
-				<h2>Phasis</h2>
+				<h2><?php echo $result->localBoxscoreLines->teamName;?></h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Phasis</th><th>Competition</th><th>Start</th><th>End</th><th>Detail</th></tr>
+				<tr><th>Player</th><th>Points</th></tr>
 				</thead>
 				<tbody>
 				<?php
-				$result = json_decode($response);
-				//echo $response;
-				foreach ($result as $edition) {
+				foreach ($result->localBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td>".$edition->phasisName."</td>
-                        <td>".$edition->competitionName."</td>
-                        <td>".$edition->startDate."</td>
-                        <td>".$edition->endDate."</td>
-                        <td><A href='phasisEdition.php?phasisEdition=".$edition->phasisEditionId."'>Detail</A></td></tr>";
+                        <td>".$line->playerLastname." ".$line->playerFirstname."</td>
+                        <td>".$line->points."</td>
+                        </tr>";
 				}?>
 				</tbody>
 				</table>
@@ -71,33 +64,23 @@ $result = json_decode($response);
     </div>
 </div>
 
-
-<?php
-$url = $configs["endpoint.location.competitions"]."/".$idCompetition."/editions/".$idCompetitionEdition."/participants";
-$client = curl_init($url);
-curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-$response = curl_exec($client);
-$result = json_decode($response);
-?>
-
 <div id="layout" class="content pure-g">
 	<?php include('menu.php');?>
     <div id="main" class="pure-u-1">
         <div class="bball-content">
 			<div class="bball-content-body">
-				<h2>Participants</h2>
+				<h2><?php echo $result->visitorBoxscoreLines->teamName;?></h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Team</th><th>Roster</th><th>Team</th></tr>
+				<tr><th>Player</th><th>Points</th></tr>
 				</thead>
 				<tbody>
 				<?php
-				$result = json_decode($response);
-				//echo $response;
-				foreach ($result as $participant) {
+				foreach ($result->visitorBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td>".$participant->teamName."</td>
-                        <td><A href='XXX'>Roster</A></td><td><A href='XXX'>Team</A></td></tr>";
+                        <td>".$line->playerLastname." ".$line->playerFirstname."</td>
+                        <td>".$line->points."</td>
+                        </tr>";
 				}?>
 				</tbody>
 				</table>
