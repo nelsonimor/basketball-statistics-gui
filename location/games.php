@@ -37,9 +37,9 @@ $response = curl_exec($client);
 				    echo "<tr>
                             <td>".$game->gameId."</td>
                             <td>".$game->gameDate."</td>
-                            <td>".$game->competitionName."</td>
-                            <td>".$game->phaseName."</td>
-                            <td>".$game->localTeam." - ".$game->visitorTeam."</td>
+                            <td><A href='competitionEdition.php?idCompetition=".$game->competitionId."&idCompetitionEdition=".$game->competitionEditionId."'>".$game->competitionName."</A></td>
+                            <td><A href='phasisEdition.php?phasisEdition=".$game->phasisEditionId."'>".$game->phaseName."</A></td>
+                            <td><A href='rosters.php?id=".$game->localRosterId."'>".$game->localTeam."</A> - <A href='rosters.php?id=".$game->visitorRosterId."'>".$game->visitorTeam."</A></td>
                             <td>".$game->localScore." - ".$game->visitorScore."</td>
                             <td><A href='gameDetails.php?id=".$game->gameId."'>Detail</A></td>
                           </tr>";

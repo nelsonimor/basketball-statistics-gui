@@ -10,8 +10,8 @@
 
 <?php
 $configs = include('../config.php');
-$teamEditionId = $_GET["id"];
-$url = $configs["endpoint.location.teams"]."edition/".$teamEditionId;
+$id = $_GET["id"];
+$url = $configs["endpoint.location.phasis"].$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -24,7 +24,7 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>Roster : ".$result->teamName." (".$result->startDate." to ".$result->endDate.")</h1>";?></h1>
+                    <h1><?php echo "<h1>Phasis : ".$result->competitionName." / ".$result->phasisName."</h1>";?></h1>
                 </div>
             </div>
         </div>
@@ -32,43 +32,7 @@ $result = json_decode($response);
 </div>
 
 <?php
-$url = $configs["endpoint.location.teams"]."edition/".$teamEditionId."/roster";
-$client = curl_init($url);
-curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-$response = curl_exec($client);
-$result = json_decode($response);
-?>
-
-
-<div id="layout" class="content pure-g">
-    <div id="main" class="pure-u-1">
-        <div class="bball-content">
-			<div class="bball-content-body">
-				<h2>Composition</h2>
-				<table class="pure-table">
-				<thead>
-				<tr><th>Player</th><th>Start</th><th>End</th><th>Detail</th></tr>
-				</thead>
-				<tbody>
-				<?php
-				$result = json_decode($response);
-				foreach ($result->items as $rosterLine) {
-				    echo "<tr>
-                        <td>".$rosterLine->playerLastname." ".$rosterLine->playerFirstname."</td>
-                        <td>".$rosterLine->startDate."</td>
-                        <td>".$rosterLine->endDate."</td>
-                        <td><A href='xxx'>Detail</A></td>
-                        </tr>";
-				}?>
-				</tbody>
-				</table>
-			</div>
-        </div>
-    </div>
-</div>
-
-<?php
-$url = $configs["endpoint.location.games"]."rosters/".$teamEditionId;
+$url = $configs["endpoint.location.games"]."phasis/".$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -104,7 +68,6 @@ $response = curl_exec($client);
         </div>
     </div>
 </div>
-
 
 
 

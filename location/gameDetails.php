@@ -47,14 +47,24 @@ $result = json_decode($response);
 				<h2><?php echo $result->localBoxscoreLines->teamName;?></h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Player</th><th>Points</th></tr>
+				<tr><th>Player</th><th>Starter</th><th>Duration</th><th>Points</th><th>Assists</th><th>Rebound (off/def)</th><th>FieldGoal</th><th>Free Throw</th><th>3pts</th><th>Steal</th><th>Turnover</th><th>Foul</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				foreach ($result->localBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
                         <td>".$line->playerLastname." ".$line->playerFirstname."</td>
+                        <td>".$line->starter."</td>
+                        <td>".$line->duration."</td>
                         <td>".$line->points."</td>
+                        <td>".$line->assist."</td>
+                        <td>".$line->offRebound."/".$line->defRebound."</td>
+                        <td>".$line->fieldGoalMade."/".$line->fieldGoalAttempts."</td>
+                        <td>".$line->freeThrowMade."/".$line->freeThrowAttempts."</td>
+                        <td>".$line->threePtsMade."/".$line->threePtsAttempts."</td>
+                        <td>".$line->steal."</td>
+                        <td>".$line->turnover."</td>
+                        <td>".$line->fouls."</td>
                         </tr>";
 				}?>
 				</tbody>
@@ -72,14 +82,24 @@ $result = json_decode($response);
 				<h2><?php echo $result->visitorBoxscoreLines->teamName;?></h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Player</th><th>Points</th></tr>
+				<tr><th>Player</th><th>Starter</th><th>Duration</th><th>Points</th><th>Assists</th><th>Rebound (off/def)</th><th>FieldGoal</th><th>Free Throw</th><th>3pts</th><th>Steal</th><th>Turnover</th><th>Foul</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				foreach ($result->visitorBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
                         <td>".$line->playerLastname." ".$line->playerFirstname."</td>
+                        <td>".$line->starter."</td>
+                        <td>".$line->duration."</td>
                         <td>".$line->points."</td>
+                        <td>".$line->assist."</td>
+                        <td>".$line->offRebound."/".$line->defRebound."</td>
+                        <td>".$line->fieldGoalMade."/".$line->fieldGoalAttempts."</td>
+                        <td>".$line->freeThrowMade."/".$line->freeThrowAttempts."</td>
+                        <td>".$line->threePtsMade."/".$line->threePtsAttempts."</td>
+                        <td>".$line->steal."</td>
+                        <td>".$line->turnover."</td>
+                        <td>".$line->fouls."</td>
                         </tr>";
 				}?>
 				</tbody>

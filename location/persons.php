@@ -28,13 +28,20 @@ $response = curl_exec($client);
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Name</th><th>Birthplace</th><th>Birthplacecountry</th><th>Nationality</th></tr>
+				<tr><th>Id</th><th>Name</th><th>Birthplace</th><th>Birthplacecountry</th><th>Nationality</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
 				foreach ($result->items as $person) {
-				echo "<tr><td>".$person->id."</td><td>".$person->lastname." ".$person->firstname."</td><td>".$person->birthplacecity->name."</td><td>".$person->birthplacecity->country->name."</td><td>".$person->firstnationality->name."</td></tr>";
+				echo "<tr>
+                    <td>".$person->id."</td>
+                    <td>".$person->lastname." ".$person->firstname."</td>
+                    <td>".$person->birthplacecity->name."</td>
+                    <td>".$person->birthplacecity->country->name."</td>
+                    <td>".$person->firstnationality->name." <img src='".$person->firstnationality->flagurl."'/></td>
+                    <td><A href='personDetails.php?id=".$person->id."'>Detail</th></td>
+                    </tr>";
 				}?>
 				</tbody>
 				</table>
