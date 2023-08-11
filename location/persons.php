@@ -28,7 +28,7 @@ $response = curl_exec($client);
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Name</th><th>Birthplace</th><th>Birthplacecountry</th><th>Nationality</th><th>Detail</th></tr>
+				<tr><th>Id</th><th>Name</th><th>Height</th><th>Hand</th><th>Birth place</th><th>Nationality</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
@@ -37,10 +37,14 @@ $response = curl_exec($client);
 				echo "<tr>
                     <td>".$person->id."</td>
                     <td>".$person->lastname." ".$person->firstname."</td>
-                    <td>".$person->birthplacecity->name."</td>
-                    <td>".$person->birthplacecity->country->name."</td>
-                    <td>".$person->firstnationality->name." <img src='".$person->firstnationality->flagurl."'/></td>
-                    <td><A href='personDetails.php?id=".$person->id."'>Detail</th></td>
+                    <td>".$person->height."</td>
+                    <td>".$person->hand."</td>
+                    <td><img src='".$person->birthplacecity->country->flagurl."'/> ".$person->birthplacecity->name.", ".$person->birthplacecity->country->name."</td>
+                    <td>
+                    <img src='".$person->firstnationality->flagurl."'/>";
+				if (isset($person->secondnationality->flagurl))echo " <img src='".$person->secondnationality->flagurl."'/>";
+				if (isset($person->thirdnationality->flagurl))echo " <img src='".$person->thirdnationality->flagurl."'/>";
+                echo    "<td><A href='personDetails.php?id=".$person->id."'>Detail</th></td>
                     </tr>";
 				}?>
 				</tbody>
