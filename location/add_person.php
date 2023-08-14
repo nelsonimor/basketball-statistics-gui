@@ -18,6 +18,7 @@ if(isset($_POST["person_first_name"]) &&
     isset($_POST["person_height"]) && 
     isset($_POST["person_birth_city_place"]) && 
     isset($_POST["person_birth_city_country"]) && 
+    isset($_POST["person_birth_date"]) && 
     isset($_POST["person_profil_picture"]) && 
     isset($_POST["person_hand"])){
     $configs = include('../config.php');
@@ -27,6 +28,7 @@ if(isset($_POST["person_first_name"]) &&
     $person_height = $_POST["person_height"];
     $person_birth_city_place = $_POST["person_birth_city_place"];
     $person_birth_city_country = $_POST["person_birth_city_country"];
+    $person_birth_date = $_POST["person_birth_date"];
     $person_profil_picture = $_POST["person_profil_picture"];
     $person_hand = $_POST["person_hand"];
     $url = $configs["endpoint.location.persons"];
@@ -38,7 +40,7 @@ if(isset($_POST["person_first_name"]) &&
     $headers = array("Accept: application/json","Content-Type: application/json",);
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
     
-    $data = "{\"firstname\": \"".$person_first_name."\",\"lastname\": \"".$person_last_name."\",\"firstnationality\": \"".$person_first_nat."\",\"height\": \"".$person_height."\",\"birthcityplace\": \"".$person_birth_city_place."\",\"birthcitycountry\": \"".$person_birth_city_country."\",\"profilpictureurl\": \"".$person_profil_picture."\",\"hand\": \"".$person_hand."\"}";
+    $data = "{\"firstname\": \"".$person_first_name."\",\"lastname\": \"".$person_last_name."\",\"firstnationality\": \"".$person_first_nat."\",\"height\": \"".$person_height."\",\"birthcityplace\": \"".$person_birth_city_place."\",\"birthcitycountry\": \"".$person_birth_city_country."\",\"birthdate\": \"".$person_birth_date."\",\"profilpictureurl\": \"".$person_profil_picture."\",\"hand\": \"".$person_hand."\"}";
     curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
 
     $resp = curl_exec($curl);
@@ -92,6 +94,7 @@ if(isset($_POST["person_first_name"]) &&
 					<label for="person_height">Height:</label> <input type="text" id="person_height" name="person_height"><br><br> 
 					<label for="person_birth_city_place">Birth city place:</label> <input type="text" id="person_birth_city_place" name="person_birth_city_place"><br><br> 
 					<label for="person_birth_city_country">Birth city country:</label> <input type="text" id="person_birth_city_country" name="person_birth_city_country"><br><br> 
+					<label for="person_birth_date">Birth date:</label> <input type="text" id="person_birth_date" name="person_birth_date"><br><br> 
 					<label for="person_profil_picture">Profil picture:</label> <input type="text" id="person_profil_picture" name="person_profil_picture"><br><br> 
 					<label for="person_hand">Hand:</label> <input type="text" id="person_hand" name="person_hand"><br><br>  
 					<input type="submit" value="Submit">
