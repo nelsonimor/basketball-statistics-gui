@@ -12,7 +12,7 @@
 $configs = include('../config.php');
 $idCompetition = $_GET["idCompetition"];
 $idCompetitionEdition = $_GET["idCompetitionEdition"];
-$url = $configs["endpoint.location.competitions"]."/".$idCompetition."/editions/".$idCompetitionEdition;
+$url = $configs["endpoint.location.competitions"]."edition/".$idCompetitionEdition;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -73,7 +73,7 @@ $result = json_decode($response);
 
 
 <?php
-$url = $configs["endpoint.location.competitions"]."/".$idCompetition."/editions/".$idCompetitionEdition."/participants";
+$url = $configs["endpoint.location.competitions"]."edition/".$idCompetitionEdition."/participants";
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -97,7 +97,7 @@ $result = json_decode($response);
 				foreach ($result as $participant) {
 				    echo "<tr>
                         <td>".$participant->teamName."</td>
-                        <td><A href='XXX'>Roster</A></td><td><A href='XXX'>Team</A></td></tr>";
+                        <td><A href='rosters.php?id=".$participant->rosterId."'>Roster</A></td><td><A href='teamDetails.php?id=".$participant->teamId."'>Team</A></td></tr>";
 				}?>
 				</tbody>
 				</table>
