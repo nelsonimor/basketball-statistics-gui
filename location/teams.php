@@ -28,13 +28,13 @@ $response = curl_exec($client);
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Team</th><th>Detail</th></tr>
+				<tr><th>Id</th><th>Team</th><th>Type</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
 				foreach ($result->items as $team) {
-				    echo "<tr><td>".$team->id."</td><td>".$team->name."</td><td><A href='teamDetails.php?id=".$team->id."'>Detail</A></td></tr>";
+				    echo "<tr><td>".$team->id."</td><td>".$team->name."</td><td>".$team->type."</td><td><A href='teamDetails.php?id=".$team->id."'>Detail</A></td></tr>";
 				}?>
 				</tbody>
 				</table>
