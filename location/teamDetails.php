@@ -44,7 +44,7 @@ $result = json_decode($response);
     <div id="main" class="pure-u-1">
         <div class="bball-content">
 			<div class="bball-content-body">
-				<h2>Editions</h2>
+				<h2>Editions <A href='add_team_edition.php'><img src="../icon/add.png" width='32px' height='32px'/></A></h2>
 				<table class="pure-table">
 				<thead>
 				<tr><th>Team</th><th>Start</th><th>End</th><th>Roster</th></tr>

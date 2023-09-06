@@ -22,7 +22,7 @@ $response = curl_exec($client);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1>List of teams</h1>
+                    <h1>List of teams <A href='add_team.php'><img src="../icon/add.png" width='32px' height='32px'/></A></h1>
                 </div>
             </div>
 			<div class="bball-content-body">
