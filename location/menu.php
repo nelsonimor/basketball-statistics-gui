@@ -27,8 +27,8 @@
 			</ul>
 			<ul class="pure-menu-list">
 				<li class="pure-menu-heading">Teams</li>
-				<li class="pure-menu-item"><a href="teams.php"
-					class="pure-menu-link"><span class="bball-label-work"></span>Teams</a></li>
+				<li class="pure-menu-item"><a href="teams_national.php" class="pure-menu-link"><span class="bball-label-work"></span>National</a></li>
+				<li class="pure-menu-item"><a href="teams_club.php" class="pure-menu-link"><span class="bball-label-work"></span>Club</a></li>
 			</ul>
 			<ul class="pure-menu-list">
 				<li class="pure-menu-heading">Games</li>

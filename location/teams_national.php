@@ -10,7 +10,7 @@
 
 <?php
 $configs = include('../config.php');
-$url = $configs["endpoint.location.teams"];
+$url = $configs["endpoint.location.teams"].'?type=National';
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -22,19 +22,19 @@ $response = curl_exec($client);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1>List of teams <A href='add_team.php'><img src="../icon/add.png" width='32px' height='32px'/></A></h1>
+                    <h1>List of teams <A href='add_team_national.php'><img src="../icon/add.png" width='32px' height='32px'/></A></h1>
                 </div>
             </div>
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Team</th><th>Type</th><th>Detail</th></tr>
+				<tr><th>Id</th><th>Team</th><th>Country</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
 				foreach ($result->items as $team) {
-				    echo "<tr><td>".$team->id."</td><td><img src='".$team->country->flagurl."'/> ".$team->name."</td><td>".$team->type."</td><td><A href='teamDetails.php?id=".$team->id."'>Detail</A></td></tr>";
+				    echo "<tr><td>".$team->id."</td><td>".$team->name."</td><td><img src='".$team->country->flagurl."'/></td><td><A href='teamDetails.php?id=".$team->id."'>Detail</A></td></tr>";
 				}?>
 				</tbody>
 				</table>

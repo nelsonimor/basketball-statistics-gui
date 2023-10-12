@@ -74,7 +74,7 @@ if(isset($_POST["teamCountry"]) && isset($_POST["teamName"])){
 					
 				</div>
 
-				<form action="add_team.php" method="post">
+				<form action="add_team_national.php" method="post">
 					<label for="teamName">   Team Name:   </label> <input type="text" id="teamName" name="teamName"><br><br>
 					<label for="teamCountry">Country name:</label> <input type="text" id="teamCountry" name="teamCountry"><br><br> 
 					<input type="submit" value="Submit">
