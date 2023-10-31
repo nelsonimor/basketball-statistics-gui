@@ -28,13 +28,21 @@ $response = curl_exec($client);
 			<div class="bball-content-body">
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Competition</th><th>Detail</th></tr>
+				<tr><th>Id</th><th>Competition</th><th>Type</th><th>Country</th><th>Detail</th></tr>
 				</thead>
 				<tbody>
 				<?php
 				$result = json_decode($response);
 				foreach ($result->items as $competition) {
-				    echo "<tr><td>".$competition->id."</td><td>".$competition->name."</td><td><A href='competitionDetails.php?id=".$competition->id."'>Detail</A></td></tr>";
+				    echo "<tr><td>".$competition->id."</td><td>".$competition->name."</td><td>".$competition->type."</td>";
+				    if(isset($competition->country->flagurl)){
+				        echo "<td>".$competition->country->name." <img src='".$competition->country->flagurl."'/></td>";
+				    }
+				    else{
+				        echo "<td></td>";
+				    }
+				    
+				    echo "<td><A href='competitionDetails.php?id=".$competition->id."'>Detail</A></td></tr>";
 				}?>
 				</tbody>
 				</table>
