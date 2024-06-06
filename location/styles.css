@@ -104,7 +104,7 @@ a {
 
 
 /*
- * -- bball STYLES --
+ * -- bball STYLES  --
  * Styles relevant to the bball messages, labels, counts, and more.
  */
 .bball-count {
@@ -113,12 +113,16 @@ a {
 
 .bball-label-personal,
 .bball-label-work,
+.bball-label-error,
 .bball-label-travel {
     width: 15px;
     height: 15px;
     display: inline-block;
     margin-right: 0.5em;
     border-radius: 3px;
+}
+.bball-label-error {
+    background: #ff0000;
 }
 .bball-label-personal {
     background: #ffc94c;
@@ -129,6 +133,7 @@ a {
 .bball-label-travel {
     background: #40c365;
 }
+
 
 
 .bball-item {

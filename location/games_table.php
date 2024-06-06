@@ -7,13 +7,13 @@
 				$result = json_decode($response);
 				foreach ($result->items as $game) {
 				    echo "<tr>
-                            <td>".$game->gameId."</td>
+                            <td>".$game->id."</td>
                             <td>".$game->gameDate."</td>
                             <td><A href='competitionEdition.php?idCompetition=".$game->competitionId."&idCompetitionEdition=".$game->competitionEditionId."'>".$game->competitionName."</A></td>
                             <td><A href='phasisEdition.php?phasisEdition=".$game->phasisEditionId."'>".$game->phaseName."</A></td>
                             <td><A href='rosters.php?id=".$game->localRosterId."'>".$game->localTeam."</A> - <A href='rosters.php?id=".$game->visitorRosterId."'>".$game->visitorTeam."</A></td>
                             <td>".$game->localScore." - ".$game->visitorScore."</td>
-                            <td><A href='gameDetails.php?id=".$game->gameId."'>Detail</A></td>
+                            <td><A href='gameDetails.php?id=".$game->id."'>Detail</A></td>
                           </tr>";
 				}?>
 				</tbody>

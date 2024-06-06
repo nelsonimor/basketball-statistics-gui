@@ -10,7 +10,7 @@
 
 <?php
 $configs = include('../config.php');
-$url = $configs["endpoint.location.games"];
+$url = $configs["endpoint.location.game_request"];
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -22,11 +22,11 @@ $response = curl_exec($client);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1>List of game (<?php echo count(json_decode($response)->items)?>)</h1>
+                    <h1>List of game requests (<?php echo count(json_decode($response)->items)?>)</h1>
                 </div>
             </div>
 			<div class="bball-content-body">
-				<?php include('games_table.php');?>
+				<?php include('game_request_table.php');?>
 			</div>
         </div>
     </div>

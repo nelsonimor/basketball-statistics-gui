@@ -32,9 +32,11 @@
 			</ul>
 			<ul class="pure-menu-list">
 				<li class="pure-menu-heading">Games</li>
-				<li class="pure-menu-item"><a href="games.php"
-					class="pure-menu-link"><span class="bball-label-personal"></span>Games</a></li>
+				<li class="pure-menu-item"><a href="games.php" class="pure-menu-link"><span class="bball-label-personal"></span>Games</a></li>
+				<li class="pure-menu-item"><a href="game_request.php" class="pure-menu-link"><span class="bball-label-personal"></span>Game Request</a></li>
+				<li class="pure-menu-item"><a href="performance.php" class="pure-menu-link"><span class="bball-label-personal"></span>Best Performance</a></li>
 			</ul>
+
 		</div>
 	</div>
 </div>

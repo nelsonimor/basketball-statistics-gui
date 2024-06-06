@@ -5,7 +5,14 @@
 		<table width="100%" border="0">
 		<tr>
 			<td width="10%"><img src="euroleague.svg" width="150px" height="75px" /></td>
-			<td width="90%" align="center"><div class="myDiv"><?php echo $result->gameInfo->league?> <?php echo $result->gameInfo->season?> - <?php echo $result->gameInfo->phasis?> - <?php echo $result->gameInfo->date?> - <?php echo $result->gameInfo->arenaName?> (<?php echo $result->gameInfo->arenaCity?>) - Attendance: <?php echo $result->gameInfo->attendance?> - Officials: N/A</div></td></tr>
+			<td width="90%" align="center">
+			<div class="myDiv"><?php echo $result->gameInfo->league?> 
+			<?php echo $result->gameInfo->season?> - 
+			<?php echo $result->gameInfo->phasis?> - 
+			<?php echo $result->gameInfo->date?> - 
+			<?php echo $result->gameInfo->arenaName?> (<?php echo $result->gameInfo->arenaCity?>) - 
+			Attendance: <?php echo $result->gameInfo->attendance?> - 
+			Officials: N/A</div></td></tr>
 		<tr>
 		</table>
 	</td>

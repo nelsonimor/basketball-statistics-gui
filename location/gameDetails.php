@@ -11,7 +11,7 @@
 <?php
 $configs = include('../config.php');
 $id = $_GET["id"];
-$url = $configs["endpoint.location.games"].$id;
+$url = $configs["endpoint.location.games"]."id/".$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -24,7 +24,8 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo "<h1>Game : ".$result->localTeam." - ".$result->visitorTeam."</h1>";?></h1>
+                    <?php echo "<h1>".$result->localTeam." - ".$result->visitorTeam."</h1>";?>
+                    <?php echo "<h3>".$result->gameDate." - ".$result->competitionName." - ".$result->phaseName."</h3>";?>
                 </div>
             </div>
         </div>
@@ -32,7 +33,7 @@ $result = json_decode($response);
 </div>
 
 <?php
-$url = $configs["endpoint.location.boxscores"]."/".$id;
+$url = $configs["endpoint.location.boxscores"]."/gameId/".$id;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -47,7 +48,7 @@ $result = json_decode($response);
 				<h2><?php echo $result->localBoxscoreLines->teamName;?></h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Player</th><th>Starter</th><th>Duration</th><th>Points</th><th>Assists</th><th>Rebound (off/def)</th><th>FieldGoal</th><th>Free Throw</th><th>3pts</th><th>Steal</th><th>Turnover</th><th>Foul</th></tr>
+				<tr><th>Player</th><th>Starter</th><th>Duration</th><th>Points</th><th>Assists</th><th>Rebound (off/def)</th><th>FieldGoal</th><th>Free Throw</th><th>3pts</th><th>Steal</th><th>Block</th><th>Turnover</th><th>Foul</th></tr>
 				</thead>
 				<tbody>
 				<?php
@@ -55,7 +56,7 @@ $result = json_decode($response);
 				    echo "<tr>
                         <td>".$line->playerLastname." ".$line->playerFirstname."</td>
                         <td>".$line->starter."</td>
-                        <td>".$line->duration."</td>
+                        <td>".gmdate("i:s", $line->duration)."</td>
                         <td>".$line->points."</td>
                         <td>".$line->assist."</td>
                         <td>".$line->offRebound."/".$line->defRebound."</td>
@@ -63,6 +64,7 @@ $result = json_decode($response);
                         <td>".$line->freeThrowMade."/".$line->freeThrowAttempts."</td>
                         <td>".$line->threePtsMade."/".$line->threePtsAttempts."</td>
                         <td>".$line->steal."</td>
+                        <td>".$line->block."</td>
                         <td>".$line->turnover."</td>
                         <td>".$line->fouls."</td>
                         </tr>";
@@ -82,7 +84,7 @@ $result = json_decode($response);
 				<h2><?php echo $result->visitorBoxscoreLines->teamName;?></h2>
 				<table class="pure-table">
 				<thead>
-				<tr><th>Player</th><th>Starter</th><th>Duration</th><th>Points</th><th>Assists</th><th>Rebound (off/def)</th><th>FieldGoal</th><th>Free Throw</th><th>3pts</th><th>Steal</th><th>Turnover</th><th>Foul</th></tr>
+				<tr><th>Player</th><th>Starter</th><th>Duration</th><th>Points</th><th>Assists</th><th>Rebound (off/def)</th><th>FieldGoal</th><th>Free Throw</th><th>3pts</th><th>Steal</th><th>Block</th><th>Turnover</th><th>Foul</th></tr>
 				</thead>
 				<tbody>
 				<?php
@@ -90,7 +92,7 @@ $result = json_decode($response);
 				    echo "<tr>
                         <td>".$line->playerLastname." ".$line->playerFirstname."</td>
                         <td>".$line->starter."</td>
-                        <td>".$line->duration."</td>
+                        <td>".gmdate("i:s", $line->duration)."</td>
                         <td>".$line->points."</td>
                         <td>".$line->assist."</td>
                         <td>".$line->offRebound."/".$line->defRebound."</td>
@@ -98,6 +100,7 @@ $result = json_decode($response);
                         <td>".$line->freeThrowMade."/".$line->freeThrowAttempts."</td>
                         <td>".$line->threePtsMade."/".$line->threePtsAttempts."</td>
                         <td>".$line->steal."</td>
+                        <td>".$line->block."</td>
                         <td>".$line->turnover."</td>
                         <td>".$line->fouls."</td>
                         </tr>";
