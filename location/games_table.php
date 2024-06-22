@@ -9,7 +9,7 @@
 				    echo "<tr>
                             <td>".$game->id."</td>
                             <td>".$game->gameDate."</td>
-                            <td><A href='competitionEdition.php?idCompetition=".$game->competitionId."&idCompetitionEdition=".$game->competitionEditionId."'>".$game->competitionName."</A></td>
+                            <td><A href='competitionEdition.php?idCompetition=".$game->competitionId."&idCompetitionEdition=".$game->competitionEditionId."'><img src='".$game->competition->country->flagurl."'/>  ".$game->competition->name."</A></td>
                             <td><A href='phasisEdition.php?phasisEdition=".$game->phasisEditionId."'>".$game->phaseName."</A></td>
                             <td><A href='rosters.php?id=".$game->localRosterId."'>".$game->localTeam."</A> - <A href='rosters.php?id=".$game->visitorRosterId."'>".$game->visitorTeam."</A></td>
                             <td>".$game->localScore." - ".$game->visitorScore."</td>
