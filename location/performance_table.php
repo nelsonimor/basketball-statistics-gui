@@ -9,7 +9,7 @@
 				
 				foreach ($result->boxscoresLineDto->items as $item) {
 				    echo "<tr><td>".$k."</td><td>".$item->game->gameDate."</td>";
-				    echo "<td>".$item->game->competitionName."</td>";
+				    echo "<td><img src='".$item->game->competition->country->flagurl."'/>  ".$item->game->competition->name."</td>";
 				    echo "<td>".$item->playerFirstname." ".$item->playerLastname."</td>";
 				    
 				    
