@@ -9,7 +9,14 @@
 				
 				foreach ($result->boxscoresLineDto->items as $item) {
 				    echo "<tr><td>".$k."</td><td>".$item->game->gameDate."</td>";
-				    echo "<td><img src='".$item->game->competition->country->flagurl."'/>  ".$item->game->competition->name."</td>";
+				    
+				    if ($item->game->competition->country->id > 0) {
+				        echo "<td><A href='competitionEdition.php?idCompetition=" . $item->game->competitionId . "&idCompetitionEdition=" . $item->game->competitionEditionId . "'><img src='" . $item->game->competition->country->flagurl . "'/>  " .$item->game->competition->name . "</A></td>";
+				    } else {
+				        echo "<td><A href='competitionEdition.php?idCompetition=" . $item->game->competitionId . "&idCompetitionEdition=" . $item->game->competitionEditionId . "'><img src='../icon/world.png' width='20px' height='20px'/>  " . $item->game->competition->name . "</A></td>";
+				    }
+				    
+				    
 				    echo "<td>".$item->playerFirstname." ".$item->playerLastname."</td>";
 				    
 				    

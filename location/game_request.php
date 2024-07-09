@@ -9,8 +9,10 @@
 <body>
 
 <?php
+$status = "ALL";
 $configs = include('../config.php');
-$url = $configs["endpoint.location.game_request"];
+if (isset($_GET['status'])) $status = $_GET['status'];
+$url = $configs["endpoint.location.game_request"] . "?status=" . $status;
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
@@ -24,6 +26,27 @@ $response = curl_exec($client);
                 <div class="pure-u-1-2">
                     <h1>List of game requests (<?php echo count(json_decode($response)->items)?>)</h1>
                 </div>
+                
+                <div class="pure-u-1-2">
+						<form action="game_request.php" method="get" id="a">
+
+							<label for="b">Status:</label> 
+							
+							<select name="status">
+								<option value="ALL"  <?php if($status == 'ALL') echo " selected";?>>ALL</option>
+								<option value="CREATED"   <?php if($status == 'CREATED') echo " selected";?>>CREATED</option>
+								<option value="CREATION_FAILURE"   <?php if($status == 'CREATION_FAILURE') echo " selected";?>>CREATION_FAILURE</option>
+								<option value="SERIALIZATION_ERROR"   <?php if($status == 'SERIALIZATION_ERROR') echo " selected";?>>SERIALIZATION_ERROR</option>
+								<option value="NO_COMPETITION_FOUND"   <?php if($status == 'NO_COMPETITION_FOUND') echo " selected";?>>NO_COMPETITION_FOUND</option>
+								<option value="VALIDATED"   <?php if($status == 'VALIDATED') echo " selected";?>>VALIDATED</option>
+							</select> 
+	
+							<input type="submit">
+						</form>
+					</div>
+                
+                
+                
             </div>
 			<div class="bball-content-body">
 				<?php include('game_request_table.php');?>

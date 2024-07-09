@@ -1,6 +1,6 @@
 				<table class="pure-table">
 				<thead>
-				<tr><th>Date</th><th>League</th><th>Local</th><th>Score</th><th>Vistor</th><th>Link</th><th>Status</th><th>Integration Date</th></tr>
+				<tr><th>Id</th><th>Date</th><th>League</th><th>Local</th><th>Score</th><th>Vistor</th><th>Link</th><th>Status</th><th>Integration Date</th></tr>
 				</thead>
 				<tbody>
 				<?php
@@ -10,7 +10,7 @@
 				
 				
 				foreach ($result->items as $game) {
-				    echo "<tr><td>".$game->date."</td><td>".$game->league."</td>";
+				    echo "<tr><td>".$game->id."</td><td>".$game->date."</td><td>".$game->league."</td>";
 				    if($game->localScore>$game->visitorScore){
 				        echo "<td><b><font color='#2980b9'>".$game->localTeam."</font></b></td><td><b><font color='#2980b9'>".$game->localScore."</font></b> - ".$game->visitorScore."</td><td>".$game->visitorTeam."</td>";
 				    }

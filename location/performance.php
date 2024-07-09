@@ -15,21 +15,32 @@
 <?php
 $period = "last_day";
 $category = "points";
+$competition_param= -1;
 
 
 if (isset($_GET['period'])) $period = $_GET['period'];
 if (isset($_GET['category']))$category = $_GET['category'];
+if (isset($_GET['competition_param']))$competition_param = $_GET['competition_param'];
 
 
 $configs = include ('../config.php');
 
 
 
-$url = $configs["endpoint.location.performance"] . "?periodicityRequest=" . $period."&statCategory=".$category;
+$url = $configs["endpoint.location.performance"] . "?periodicityRequest=" . $period."&statCategory=".$category."&competitionId=".$competition_param;
 $client = curl_init($url);
 curl_setopt($client, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($client);
 $result = json_decode($response);
+
+
+
+
+$url_c = $configs["endpoint.location.competitions"];
+$client_c = curl_init($url_c);
+curl_setopt($client_c,CURLOPT_RETURNTRANSFER,true);
+$response_c = curl_exec($client_c);
+$result_c = json_decode($response_c);
 ?>
 
 
@@ -49,6 +60,24 @@ $result = json_decode($response);
 
 					<div class="pure-u-1-2">
 						<form action="performance.php" method="get" id="a">
+						    <label for="b">Competition:</label> 
+							
+							<select name="competition_param">
+								<option value="-1" <?php if($competition_param == '-1') echo " selected";?>>all</option>
+								
+								<?php 
+								foreach ($result_c->items as $competition) {
+								    echo "<option value=$competition->id ";
+								    if($competition_param == $competition->id) echo " selected";
+								    echo ">".$competition->name."</option>";
+								}
+								?>
+							</select> 
+						
+						
+						
+						
+						
 							<label for="b">Periodicity:</label> 
 							
 							<select name="period">
