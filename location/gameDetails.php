@@ -54,7 +54,7 @@ $result = json_decode($response);
 				<?php
 				foreach ($result->localBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td>".$line->playerLastname." ".$line->playerFirstname."</td>
+                        <td><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</td>
                         <td>".$line->starter."</td>
                         <td>".gmdate("i:s", $line->duration)."</td>
                         <td>".$line->points."</td>
@@ -90,7 +90,7 @@ $result = json_decode($response);
 				<?php
 				foreach ($result->visitorBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td>".$line->playerLastname." ".$line->playerFirstname."</td>
+                        <td><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</td>
                         <td>".$line->starter."</td>
                         <td>".gmdate("i:s", $line->duration)."</td>
                         <td>".$line->points."</td>

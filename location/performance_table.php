@@ -17,7 +17,7 @@
 				    }
 				    
 				    
-				    echo "<td>".$item->playerFirstname." ".$item->playerLastname."</td>";
+				    echo "<td><img src='".$item->person->firstnationality->flagurl."'/> ".$item->person->firstname." ".$item->person->lastname."</td>";
 				    
 				    
 				    if($category == "points"){
