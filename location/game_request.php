@@ -38,6 +38,7 @@ $response = curl_exec($client);
 								<option value="CREATION_FAILURE"   <?php if($status == 'CREATION_FAILURE') echo " selected";?>>CREATION_FAILURE</option>
 								<option value="SERIALIZATION_ERROR"   <?php if($status == 'SERIALIZATION_ERROR') echo " selected";?>>SERIALIZATION_ERROR</option>
 								<option value="NO_COMPETITION_FOUND"   <?php if($status == 'NO_COMPETITION_FOUND') echo " selected";?>>NO_COMPETITION_FOUND</option>
+								<option value="WRONG_NATIONALITIES"   <?php if($status == 'WRONG_NATIONALITIES') echo " selected";?>>WRONG_NATIONALITIES</option>
 								<option value="VALIDATED"   <?php if($status == 'VALIDATED') echo " selected";?>>VALIDATED</option>
 							</select> 
 	
