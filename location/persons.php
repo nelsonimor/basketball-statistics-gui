@@ -38,9 +38,21 @@ $response = curl_exec($client);
                     <td>".$person->id."</td>
                     <td>".$person->lastname." ".$person->firstname."</td>
                     <td>".$person->height."</td>
-                    <td>".$person->hand."</td>
-                    <td><img src='".$person->birthplacecity->country->flagurl."'/> ".$person->birthplacecity->name.", ".$person->birthplacecity->country->name."</td>
-                    <td>".$person->birthdate."</td>
+                    <td>".$person->hand."</td>";
+               
+				if(isset($person->birthplacecity->country)){
+				    echo "<td><img src='".$person->birthplacecity->country->flagurl."'/> ".$person->birthplacecity->name.", ".$person->birthplacecity->country->name."</td>";
+				}
+				else{
+				    echo "<td></td>";
+				}
+				
+
+                    
+
+
+
+                echo "<td>".$person->birthdate."</td>
                     <td>
                     <img src='".$person->firstnationality->flagurl."'/>";
 				if (isset($person->secondnationality->flagurl))echo " <img src='".$person->secondnationality->flagurl."'/>";
