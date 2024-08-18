@@ -8,6 +8,7 @@
 			<th>Phasis</th>
 			<th>Teams</th>
 			<th>Score</th>
+			<th>Overtime</th>
 			<th>Detail</th>
 		</tr>
 	</thead>
@@ -45,6 +46,13 @@
         else{
             echo "<td><A href='rosters.php?id=" . $game->localRosterId . "'><font color='#000000'>" . $game->localTeam . "</font></A> - <A href='rosters.php?id=" . $game->visitorRosterId . "'><b><font color='#2980b9'>" . $game->visitorTeam . "</font></b></A></td>";
             echo "<td>" . $game->localScore . " - <b><font color='#2980b9'>" . $game->visitorScore . "</font></b></td>";
+        }
+        
+        if($game->overtime == true){
+            echo "<td><img src='../icon/overtime.png' width='20px' height='20px'/></td>";
+        }
+        else{
+            echo "<td>&nbsp;</td>";
         }
         
 
