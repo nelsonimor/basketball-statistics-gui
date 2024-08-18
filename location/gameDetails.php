@@ -26,6 +26,53 @@ $result = json_decode($response);
                 <div class="pure-u-1-2">
                     <?php echo "<h1>".$result->localTeam." - ".$result->visitorTeam."</h1>";?>
                     <?php echo "<h3>".$result->gameDate." - ".$result->competitionName." - ".$result->phaseName."</h3>";?>
+                    
+                    <table class="pure-table">
+                    <thead>
+                    
+                    
+                    <tr><th>Score</th><th>Qt1</th><th>Qt2</th><th>Qt3</th><th>Qt4</th><th>Ot1</th><th>Ot2</th><th>Ot3</th><th>Ot4</th><th>Ot5</th><th>Final</th>
+                   	</thead>
+                   
+                    <tr>
+                    <td><?php echo $result->localTeam?></td>
+                    <td><?php echo $result->localScoreQt1?></td>
+                    <td><?php echo $result->localScoreQt2?></td>
+                    <td><?php echo $result->localScoreQt3?></td>
+                    <td><?php echo $result->localScoreQt4?></td>
+                    <td><?php echo $result->localScoreOt1?></td>
+                    <td><?php echo $result->localScoreOt2?></td>
+                    <td><?php echo $result->localScoreOt3?></td>
+                    <td><?php echo $result->localScoreOt4?></td>
+                    <td><?php echo $result->localScoreOt5?></td>
+                    <td><b><?php echo $result->localScore?></b></td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    <tr>
+                    <td><?php echo $result->visitorTeam?></td>
+                    <td><?php echo $result->visitorScoreQt1?></td>
+                    <td><?php echo $result->visitorScoreQt2?></td>
+                    <td><?php echo $result->visitorScoreQt3?></td>
+                    <td><?php echo $result->visitorScoreQt4?></td>
+                    <td><?php echo $result->visitorScoreOt1?></td>
+                    <td><?php echo $result->visitorScoreOt2?></td>
+                    <td><?php echo $result->visitorScoreOt3?></td>
+                    <td><?php echo $result->visitorScoreOt4?></td>
+                    <td><?php echo $result->visitorScoreOt5?></td>
+                    <td><b><?php echo $result->visitorScore?></b></td>
+                    </tr>
+                    
+                    
+                    
+                    
+                    <!--  </tr><tr><td>Qt2</td></tr><tr><td>Qt3</td></tr><tr><td>Qt4</td></tr><tr><td>Ot1</td></tr><tr><td>Ot2</td></tr><tr><td>Ot3</td></tr><tr><td>Ot4</td></tr><tr><td>Ot5</td></tr>-->
+                    
+                    </table>
+                    
+                    
                 </div>
             </div>
         </div>
