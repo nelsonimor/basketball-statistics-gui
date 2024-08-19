@@ -17,7 +17,7 @@
 				    }
 				    
 				    
-				    echo "<td><img src='".$item->person->firstnationality->flagurl."'/> ".$item->person->firstname." ".$item->person->lastname."</td>";
+				    echo "<td><A href='personDetails.php?id=".$item->person->id."'><img src='".$item->person->firstnationality->flagurl."'/> ".$item->person->firstname." ".$item->person->lastname."</A></td>";
 				    
 				    
 				    if($category == "points"){

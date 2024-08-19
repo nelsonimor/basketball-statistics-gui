@@ -101,7 +101,7 @@ $result = json_decode($response);
 				<?php
 				foreach ($result->localBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</td>
+                        <td><A href='personDetails.php?id=".$line->person->id."'><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td>
                         <td>".$line->starter."</td>
                         <td>".gmdate("i:s", $line->duration)."</td>
                         <td>".$line->points."</td>

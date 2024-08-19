@@ -11,11 +11,13 @@
 <?php
 $configs = include('../config.php');
 $id = $_GET["id"];
-$url = $configs["endpoint.location.persons"].$id;
+$url = $configs["endpoint.location.persons"]."?ids=".$id;
+
 $client = curl_init($url);
 curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 $response = curl_exec($client);
 $result = json_decode($response);
+$person = array_shift($result->items);
 ?>
 
 <div id="layout" class="content pure-g">
@@ -24,7 +26,7 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo $result->firstname ." ". $result->lastname."<img src='".$result->profilpictureurl."'/></h1>";?></h1>
+                    <h1><?php echo $person->firstname ." ". $person->lastname."<img src='".$person->profilpictureurl."'/></h1>";?></h1>
                     
                 </div>
             </div>
