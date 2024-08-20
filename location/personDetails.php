@@ -26,17 +26,39 @@ $person = array_shift($result->items);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1><?php echo $person->firstname ." ". $person->lastname."<img src='".$person->profilpictureurl."'/></h1>";?></h1>
                     
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                    <table border = '0' width='100%'>
+                    <tr><td><b><font size='30px'><?php echo $person->firstname ." ". $person->lastname."";?></font></b></td><td><?php echo "<img src='".$person->profilpictureurl."'/>"?></td></tr>
+                    <tr><td><b>Nationality :</b> <?php echo $person->firstnationality->name." <img src='".$person->firstnationality->flagurl."'/>";?></td></tr>
+                    <tr><td><b>Hand :</b> <?php echo $person->hand;?></td></tr>
+                    <tr><td><b>Height :</b> <?php echo $person->height;?></td></tr>
+                     
+                     <?php 
+                     if(isset($person->birthplacecity->name)){
+                         ?>
+                         <tr><td><b>Birthplace :</b> <?php echo $person->birthplacecity->name." (".$person->birthplacecity->country->name."<img src='".$person->birthplacecity->country->flagurl."'/>)";?></td></tr>
+                         <?php
+                     }
+                     
+                     ?>
+                     
+                     
+                    </table>
+                    
+                    
+                    
+                    
+					</div>
+
+				</div>
 
 
-
-
+				<div class="bball-content-body">
+				<?php include('person_boxscores.php');?>
+			</div>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>

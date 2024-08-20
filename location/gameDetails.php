@@ -101,9 +101,13 @@ $result = json_decode($response);
 				<?php
 				foreach ($result->localBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td><A href='personDetails.php?id=".$line->person->id."'><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td>
-                        <td>".$line->starter."</td>
-                        <td>".gmdate("i:s", $line->duration)."</td>
+                        <td width='300px'><A href='personDetails.php?id=".$line->person->id."'><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td><td>";
+                        
+				    if($line->starter == 1){
+				       echo "<img src = '../icon/starter.png' height='20px' width='20px'/>"; 
+				    }
+
+                        echo "</td><td>".gmdate("i:s", $line->duration)."</td>
                         <td>".$line->points."</td>
                         <td>".$line->assist."</td>
                         <td>".$line->offRebound."/".$line->defRebound."</td>
@@ -137,9 +141,11 @@ $result = json_decode($response);
 				<?php
 				foreach ($result->visitorBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</td>
-                        <td>".$line->starter."</td>
-                        <td>".gmdate("i:s", $line->duration)."</td>
+                         <td width='300px'><A href='personDetails.php?id=".$line->person->id."'><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td><td>";
+				    if($line->starter == 1){
+				       echo "<img src = '../icon/starter.png' height='20px' width='20px'/>"; 
+				    }
+                       echo "</td><td>".gmdate("i:s", $line->duration)."</td>
                         <td>".$line->points."</td>
                         <td>".$line->assist."</td>
                         <td>".$line->offRebound."/".$line->defRebound."</td>
