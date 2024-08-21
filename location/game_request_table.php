@@ -1,6 +1,6 @@
 				<table class="pure-table">
 				<thead>
-				<tr><th>Id</th><th>Date</th><th>League</th><th>Local</th><th>Score</th><th>Vistor</th><th>Link</th><th>Status</th><th>Integration Date</th></tr>
+				<tr><th>Id</th><th>Date</th><th>League</th><th>Local</th><th>Score</th><th>Vistor</th><th>Link</th><th>Status</th><th>Integration Date</th><th>Process duration</th></tr>
 				</thead>
 				<tbody>
 				<?php
@@ -37,7 +37,8 @@
 				    
 
 				            
-				    echo "<td>".$game->integrationDate."</td></td></tr>";
+				    echo "<td>".$game->integrationDate."</td></td>";
+				    echo "<td>".$game->processDuration." ms</td></td></tr>";
 				    
 
 				}?>
