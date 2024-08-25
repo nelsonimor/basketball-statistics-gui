@@ -22,7 +22,7 @@ $response = curl_exec($client);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1>List of persons <A href='add_person.php'><img src="../icon/add.png" width='32px' height='32px'/></A></h1>
+                    <h1>List of persons (<?php echo count(json_decode($response)->items)?>) <A href='add_person.php'><img src="../icon/add.png" width='32px' height='32px'/></A></h1>
                 </div>
             </div>
 			<div class="bball-content-body">
@@ -36,9 +36,13 @@ $response = curl_exec($client);
 				foreach ($result->items as $person) {
 				echo "<tr>
                     <td>".$person->id."</td>
-                    <td>".$person->lastname." ".$person->firstname."</td>
-                    <td>".$person->height."</td>
-                    <td>".$person->hand."</td>";
+                    <td>".$person->lastname." ".$person->firstname."</td>";
+                echo "<td>";
+                if(isset($person->height) && $person->height!=null){
+                    echo $person->height;
+                }
+                echo "</td>";
+                echo   "<td>".$person->hand."</td>";
                
 				if(isset($person->birthplacecity->country)){
 				    echo "<td><img src='".$person->birthplacecity->country->flagurl."'/> ".$person->birthplacecity->name.", ".$person->birthplacecity->country->name."</td>";

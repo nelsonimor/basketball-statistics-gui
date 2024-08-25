@@ -22,7 +22,7 @@ $response = curl_exec($client);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <h1>List of continents</h1>
+                    <h1>List of continents (<?php echo count(json_decode($response)->items)?>)</h1>
                 </div>
             </div>
 			<div class="bball-content-body">
