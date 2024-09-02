@@ -39,7 +39,14 @@ $person = array_shift($result->items);
                          <tr><td><b>Birthplace :</b> <?php echo $person->birthplacecity->name." (".$person->birthplacecity->country->name."<img src='".$person->birthplacecity->country->flagurl."'/>)";?></td></tr>
                          <?php
                      }
+                     ?>
                      
+                     <?php 
+                     if(isset($person->birthdate)){
+                         ?>
+                         <tr><td><b>Birthdate :</b> <?php echo $person->birthdate;?></td></tr>
+                         <?php
+                     }
                      ?>
                      
                      
