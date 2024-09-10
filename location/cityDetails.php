@@ -44,7 +44,7 @@ $response = curl_exec($client);
     <div id="main" class="pure-u-1">
         <div class="bball-content">
 			<div class="bball-content-body">
-				<h2><?php echo "<h3>".count(json_decode($response)->items)." persons birth at : ".$result->name." (".$result->country->name.") <img src='".$result->country->flagurl."'/></h3>";?></h2>
+				<h2><?php echo "<h3>".count(json_decode($response)->items)." persons born at : ".$result->name." (".$result->country->name.") <img src='".$result->country->flagurl."'/></h3>";?></h2>
 				<table class="pure-table">
 				<thead>
 				<tr><th>Id</th><th>Name</th><th>Height</th><th>Hand</th><th>Birth place</th><th>Birth date</th><th>Nationality</th><th>Detail</th></tr>
