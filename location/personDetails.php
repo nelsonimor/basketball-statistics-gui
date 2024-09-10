@@ -29,14 +29,14 @@ $person = array_shift($result->items);
                     
                     <table border = '0' width='100%'>
                     <tr><td><b><font size='30px'><?php echo $person->firstname ." ". $person->lastname."";?></font></b></td><td><?php echo "<img src='".$person->profilpictureurl."'/>"?></td></tr>
-                    <tr><td><b>Nationality :</b> <?php echo $person->firstnationality->name." <img src='".$person->firstnationality->flagurl."'/>";?></td></tr>
+                    <tr><td><b>Nationality :</b> <?php echo $person->firstnationality->name." <A href='countryDetails.php?id=".$person->firstnationality->id."'><img src='".$person->firstnationality->flagurl."'/></A>";?></td></tr>
                     <tr><td><b>Hand :</b> <?php echo $person->hand;?></td></tr>
                     <tr><td><b>Height :</b> <?php echo $person->height;?></td></tr>
                      
                      <?php 
                      if(isset($person->birthplacecity->name)){
                          ?>
-                         <tr><td><b>Birthplace :</b> <?php echo "<A href='cityDetails.php?id=".$person->birthplacecity->id."'>".$person->birthplacecity->name."</A> (".$person->birthplacecity->country->name."<img src='".$person->birthplacecity->country->flagurl."'/>)";?></td></tr>
+                         <tr><td><b>Birthplace :</b> <?php echo "<A href='cityDetails.php?id=".$person->birthplacecity->id."'>".$person->birthplacecity->name."</A> (".$person->birthplacecity->country->name."<A href='countryDetails.php?id=".$person->firstnationality->id."'><img src='".$person->birthplacecity->country->flagurl."'/></A>)";?></td></tr>
                          <?php
                      }
                      ?>
