@@ -64,12 +64,7 @@ $result = json_decode($response);
                     <td><?php echo $result->visitorScoreOt5?></td>
                     <td><b><?php echo $result->visitorScore?></b></td>
                     </tr>
-                    
-                    
-                    
-                    
-                    <!--  </tr><tr><td>Qt2</td></tr><tr><td>Qt3</td></tr><tr><td>Qt4</td></tr><tr><td>Ot1</td></tr><tr><td>Ot2</td></tr><tr><td>Ot3</td></tr><tr><td>Ot4</td></tr><tr><td>Ot5</td></tr>-->
-                    
+ 
                     </table>
                     
                     
@@ -101,7 +96,7 @@ $result = json_decode($response);
 				<?php
 				foreach ($result->localBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                        <td width='300px'><A href='personDetails.php?id=".$line->person->id."'><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td><td>";
+                        <td width='300px'><A href='countryDetails.php?id=".$line->person->firstnationality->id."'><img src='".$line->person->firstnationality->flagurl."'/></A><A href='personDetails.php?id=".$line->person->id."'> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td><td>";
                         
 				    if($line->starter == 1){
 				       echo "<img src = '../icon/starter.png' height='20px' width='20px'/>"; 
@@ -141,7 +136,7 @@ $result = json_decode($response);
 				<?php
 				foreach ($result->visitorBoxscoreLines->boxscoreLines as $line) {
 				    echo "<tr>
-                         <td width='300px'><A href='personDetails.php?id=".$line->person->id."'><img src='".$line->person->firstnationality->flagurl."'/> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td><td>";
+                        <td width='300px'><A href='countryDetails.php?id=".$line->person->firstnationality->id."'><img src='".$line->person->firstnationality->flagurl."'/></A><A href='personDetails.php?id=".$line->person->id."'> ".$line->person->firstname." ".strtoupper($line->person->lastname)."</A></td><td>";
 				    if($line->starter == 1){
 				       echo "<img src = '../icon/starter.png' height='20px' width='20px'/>"; 
 				    }
