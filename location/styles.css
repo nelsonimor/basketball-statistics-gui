@@ -114,6 +114,7 @@ a {
 .bball-label-personal,
 .bball-label-work,
 .bball-label-error,
+.bball-label-ko,
 .bball-label-travel {
     width: 15px;
     height: 15px;
@@ -133,6 +134,10 @@ a {
 .bball-label-travel {
     background: #40c365;
 }
+.bball-label-ko {
+    background: #000000;
+}
+
 
 
 

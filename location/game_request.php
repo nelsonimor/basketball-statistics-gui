@@ -40,6 +40,8 @@ $response = curl_exec($client);
 								<option value="NO_COMPETITION_FOUND"   <?php if($status == 'NO_COMPETITION_FOUND') echo " selected";?>>NO_COMPETITION_FOUND</option>
 								<option value="WRONG_NATIONALITIES"   <?php if($status == 'WRONG_NATIONALITIES') echo " selected";?>>WRONG_NATIONALITIES</option>
 								<option value="WRONG_SCORES"   <?php if($status == 'WRONG_SCORES') echo " selected";?>>WRONG_SCORES</option>
+								<option value="DUPLICATED"   <?php if($status == 'DUPLICATED') echo " selected";?>>DUPLICATED</option>
+								<option value="MAX_ATTEMPT_REACHED"   <?php if($status == 'MAX_ATTEMPT_REACHED') echo " selected";?>>MAX_ATTEMPT_REACHED</option>
 								<option value="VALIDATED"   <?php if($status == 'VALIDATED') echo " selected";?>>VALIDATED</option>
 							</select> 
 	

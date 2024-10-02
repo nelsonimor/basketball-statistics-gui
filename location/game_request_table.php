@@ -29,6 +29,15 @@
 				        echo "<span class='bball-label-travel'></span>";
 				        echo $game->status."</td>";
 				    }
+				    else if($game->status == "DUPLICATED"){
+				        echo "<span class='bball-label-ko'></span>";
+				        echo $game->status."</td>";
+				    }
+				    else if($game->status == "MAX_ATTEMPT_REACHED"){
+				        echo "<span class='bball-label-ko'></span>";
+				        echo $game->status." (".$game->processingAttempt.")<br><font size='1'>".$game->errorMessage."</font></td>";
+				    }
+				    
 				    else{
 				        echo "<span class='bball-label-error'></span>";
 				        echo $game->status." (".$game->processingAttempt.")<br><font size='1'>".$game->errorMessage."</font></td>";

@@ -56,11 +56,12 @@ $response = curl_exec($client);
 
 
 
-                echo "<td>".$person->birthdate."</td>
-                    <td>
-                    <img src='".$person->firstnationality->flagurl."'/>";
-				if (isset($person->secondnationality->flagurl))echo " <img src='".$person->secondnationality->flagurl."'/>";
+                echo "<td>";
+				
+                if (isset($person->firstnationality->flagurl))echo " <img src='".$person->firstnationality->flagurl."'/>";
+                if (isset($person->secondnationality->flagurl))echo " <img src='".$person->secondnationality->flagurl."'/>";
 				if (isset($person->thirdnationality->flagurl))echo " <img src='".$person->thirdnationality->flagurl."'/>";
+				echo "</td>";
                 echo    "<td><A href='personDetails.php?id=".$person->id."'>Detail</th></td>
                     </tr>";
 				}?>
