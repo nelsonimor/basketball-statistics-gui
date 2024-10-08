@@ -11,9 +11,9 @@
 				    echo "<tr><td>".$k."</td><td>".$item->game->gameDate."</td>";
 				    
 				    if ($item->game->competition->country->id > 0) {
-				        echo "<td><A href='competitionEdition.php?idCompetition=" . $item->game->competitionId . "&idCompetitionEdition=" . $item->game->competitionEditionId . "'><img src='" . $item->game->competition->country->flagurl . "'/>  " .$item->game->competition->name . "</A></td>";
+				        echo "<td><A href='competitionEdition.php?idCompetition=" . $item->game->competition->id . "&idCompetitionEdition=" . $item->game->competitionEditionId . "'><img src='" . $item->game->competition->country->flagurl . "'/>  " .$item->game->competition->name . "</A></td>";
 				    } else {
-				        echo "<td><A href='competitionEdition.php?idCompetition=" . $item->game->competitionId . "&idCompetitionEdition=" . $item->game->competitionEditionId . "'><img src='../icon/world.png' width='20px' height='20px'/>  " . $item->game->competition->name . "</A></td>";
+				        echo "<td><A href='competitionEdition.php?idCompetition=" . $item->game->competition->id . "&idCompetitionEdition=" . $item->game->competitionEditionId . "'><img src='../icon/world.png' width='20px' height='20px'/>  " . $item->game->competition->name . "</A></td>";
 				    }
 				    
 				    
@@ -64,7 +64,15 @@
 				    }
 
 				    echo "<td>".$item->teamName."</td>";
-				    echo "<td>".$item->game->localTeam." vs ".$item->game->visitorTeam."</td>";
+				    
+				    if($item->teamName == $item->game->localTeam->name){
+				        echo "<td><img src='../icon/home.png' width='20px' height='20px'/> ".$item->game->visitorTeam->name."</td>";
+				    }
+				    else{
+				        echo "<td><img src='../icon/away.png' width='20px' height='20px'/> ".$item->game->localTeam->name."</td>";
+				    }
+				   
+				   
 				    echo "<td>".$item->game->localScore." - ".$item->game->visitorScore."</td>";
 				    echo "<td><A href='gameDetails.php?id=".$item->game->id."'>Boxscore</A></td>";
 				    $k++;

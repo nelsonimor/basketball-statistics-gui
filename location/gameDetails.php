@@ -24,8 +24,8 @@ $result = json_decode($response);
         <div class="bball-content">
             <div class="bball-content-header pure-g">
                 <div class="pure-u-1-2">
-                    <?php echo "<h1>".$result->localTeam." - ".$result->visitorTeam."</h1>";?>
-                    <?php echo "<h3>".$result->gameDate." - ".$result->competitionName." - ".$result->phaseName."</h3>";?>
+                    <?php echo "<h1>".$result->localTeam->name." - ".$result->visitorTeam->name."</h1>";?>
+                    <?php echo "<h3>".$result->gameDate." - ".$result->competition->name." - ".$result->phaseName."</h3>";?>
                     
                     <table class="pure-table">
                     <thead>
@@ -35,7 +35,7 @@ $result = json_decode($response);
                    	</thead>
                    
                     <tr>
-                    <td><?php echo $result->localTeam?></td>
+                    <td><?php echo $result->localTeam->name?></td>
                     <td><?php echo $result->localScoreQt1?></td>
                     <td><?php echo $result->localScoreQt2?></td>
                     <td><?php echo $result->localScoreQt3?></td>
@@ -52,7 +52,7 @@ $result = json_decode($response);
                     
                     
                     <tr>
-                    <td><?php echo $result->visitorTeam?></td>
+                    <td><?php echo $result->visitorTeam->name?></td>
                     <td><?php echo $result->visitorScoreQt1?></td>
                     <td><?php echo $result->visitorScoreQt2?></td>
                     <td><?php echo $result->visitorScoreQt3?></td>
