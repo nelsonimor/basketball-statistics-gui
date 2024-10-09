@@ -42,6 +42,7 @@ $response = curl_exec($client);
 								<option value="WRONG_SCORES"   <?php if($status == 'WRONG_SCORES') echo " selected";?>>WRONG_SCORES</option>
 								<option value="DUPLICATED"   <?php if($status == 'DUPLICATED') echo " selected";?>>DUPLICATED</option>
 								<option value="MAX_ATTEMPT_REACHED"   <?php if($status == 'MAX_ATTEMPT_REACHED') echo " selected";?>>MAX_ATTEMPT_REACHED</option>
+								<option value="NO_TEAM_FOUND"   <?php if($status == 'NO_TEAM_FOUND') echo " selected";?>>NO_TEAM_FOUND</option>
 								<option value="VALIDATED"   <?php if($status == 'VALIDATED') echo " selected";?>>VALIDATED</option>
 							</select> 
 	
@@ -52,6 +53,10 @@ $response = curl_exec($client);
                 
                 
             </div>
+            <div class="bball-content-body">
+				<?php include('game_request_recap_table.php');?>
+			</div>
+			
 			<div class="bball-content-body">
 				<?php include('game_request_table.php');?>
 			</div>
