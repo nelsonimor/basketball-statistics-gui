@@ -34,9 +34,16 @@ $response = curl_exec($client);
 				<?php
 				$result = json_decode($response);
 				foreach ($result->items as $team) {
-				    echo "<tr><td>".$team->id."</td>
-                            <td>".$team->name."</td>
-                            <td>".$team->mainCity->name.",".$team->mainCity->country->name."  <img src='".$team->mainCity->country->flagurl."'/></td>";
+				    echo "<tr><td>".$team->id."</td><td>".$team->name."</td>";
+				    
+				    
+				    if(isset($team->mainCity->name)){
+				        echo "<td>".$team->mainCity->name.",".$team->mainCity->country->name."  <img src='".$team->mainCity->country->flagurl."'/></td>";
+				    }
+				    else{
+				        echo "<td>-</td>";
+				    }
+				   
 				    if(isset($team->secondCity->name)){
 				        echo "<td>".$team->secondCity->name.",".$team->secondCity->country->name."  <img src='".$team->secondCity->country->flagurl."'/></td>";
 				    }
